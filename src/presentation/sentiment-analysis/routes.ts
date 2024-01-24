@@ -15,8 +15,6 @@ export class SentimentAnalysisRoutes{
         router.post('/natural',(req,res) =>sentimentAnalysisController.analyse(req,res,1) )
         router.post('/nlp',(req,res) =>sentimentAnalysisController.analyse(req,res,2) )
         router.post('/sentiment',(req,res) =>sentimentAnalysisController.analyse(req,res,3) )
-        //Tensorflow JS model
-        router.post('/universal-sentence-encoder',(req,res) =>sentimentAnalysisController.analyse(req,res,4) )
 
         return router
     }

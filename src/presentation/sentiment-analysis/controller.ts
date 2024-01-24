@@ -3,9 +3,6 @@ import {IsentimentAnalysisRepository} from "../../domain/repositories/Isentiment
 import {AnalyseWithNatural} from "../../domain/use-cases/sentiment-analysis/analyse-with-natural";
 import {AnalyseWithSentiment} from "../../domain/use-cases/sentiment-analysis/analyse-with-sentiment";
 import {AnalyseWithNlp} from "../../domain/use-cases/sentiment-analysis/analyse-with-nlp";
-import {
-    AnalyseWithUniversalSentenceEncoder
-} from "../../domain/use-cases/sentiment-analysis/analyse-with-universal-sentence-encoder";
 
 export class SentimentAnalysisController{
 
@@ -30,11 +27,6 @@ export class SentimentAnalysisController{
                 .catch(error=> res.status(400).json({error}))
         }else if (library===3){
             new AnalyseWithSentiment(this.sentimentAnalysisRepository)
-                .execute(message)
-                .then(sentimentAnalysis => res.json(sentimentAnalysis))
-                .catch(error=> res.status(400).json({error}))
-        }else if (library===4){
-            new AnalyseWithUniversalSentenceEncoder(this.sentimentAnalysisRepository)
                 .execute(message)
                 .then(sentimentAnalysis => res.json(sentimentAnalysis))
                 .catch(error=> res.status(400).json({error}))
